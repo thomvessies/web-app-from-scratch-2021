@@ -6,10 +6,22 @@ function getActivities(res){
 
   const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}`
   fetch(activities_link)
-    .then((res) => console.log(res.json()))
+    .then((res) => res.json())
+    .then(function (data){
 
+      var map = L.map('map').setView([51.505, -0.09], 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      for(var x=0;x<data.length; x++){
+        console.log(data[x])
+      }
+
+    }
+    )
 }
-
 
 function reAuthorize(){
   fetch(auth_link, {
