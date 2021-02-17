@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>API Template</title>
+    <title>NASA Astronomy Picture Of the Day API</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,17 +11,50 @@
 
   </head>
   <body>
+
+    <div id="Hoofdpagina"></div>
     <h1>
-      API Template
+      NASA Astronomy Picture Of the Day API
     </h1>
-    <input id="searchTerm" type="text" placeholder="Enter search term" />
-    <button id="search">
-      Search
-    </button>
-    <div id="content">
-      
+
+    <div id="Home">
+      <h3>HOMEPAGE</h3>
     </div>
+
+    <div id="Default">
+      <h3>TODAYPAGE</h3>
+      <button id="searchToday">Search</button>
+    </div>
+
+    <div id="PickSingleDay">
+      <h3>SINGLEDAYPAGE</h3>
+      <label for="searchTermSingleDay">Pick a date in the past: </label>
+      <input id="searchTermSingleDay" type="date"/>
+      <button id="searchSingleDay">Search</button>
+    </div>
+
+    <div id="startDate_endDate">
+      <h3>STARTENDPAGE</h3>
+      <p>Select two dates. This may be a past date or today's date</p>
+      <label for="searchTerm1">Start date:</label>
+      <input id="searchTerm1" type="date"/>
+      <label for="searchTerm2">End date:</label>
+      <input id="searchTerm2" type="date"/>
+      <button id="searchStartEnd">Search</button>
+      <br>
+    </div>
+
     <!-- import the webpage's javascript file -->
-    <script type="module" src="main.js"></script>
+    <script src="./script/vendor/routie.js"></script>
+    <script type="module" src="./script/main.js"></script>
+    <nav>
+      <ul>
+        <li><a href="#Home_page">1. Homepage</a></li>
+        <li><a href="#Default_page">2. Picture of the Day -> Today</a></li>
+        <li><a href="#SingleDay_page">3. Picture of the Day -> Choose a day</a></li>
+        <li><a href="#StartDateEndDate_page">4. Picture of the Day -> Choose a period</a></li>
+        <li><a href="#">5. </a></li>
+      </ul>
+    </nav>
   </body>
 </html>
