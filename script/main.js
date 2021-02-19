@@ -41,8 +41,9 @@ searchStartEndButton.addEventListener("click", async()=>{
 
 function useApiData(data){
     const data_explanation = document.querySelector("#startDate_endDate")
-    var i, text
+    var i
     for (i = 0; i < data.length; i++) {
+        console.log(data)
         data_explanation.innerHTML += data[i].explanation
         //data_explanation.innerHTML += `<img src="${data.url}">`
         data_explanation.innerHTML += data[i].media_type == "video" ? `<iframe width="560" height="315" src="${data[i].url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : `<img src="${data[i].url}">`
