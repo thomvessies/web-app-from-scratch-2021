@@ -11,38 +11,42 @@
 
   </head>
   <body>
+    <header>
+      <h1>
+        NASA Astronomy Picture Of the Day API
+      </h1>
+    </header>
+    <article>
+      <section id="Home_page">
+        <h3>HOMEPAGE</h3>
+        <p>Welcome to the </p>
+      </section>
 
-    <div id="Hoofdpagina"></div>
-    <h1>
-      NASA Astronomy Picture Of the Day API
-    </h1>
+      <section id="Default_page">
+        <h3>TODAYPAGE</h3>
+        <button id="searchToday">Search</button>
+      </section>
 
-    <div id="Home">
-      <h3>HOMEPAGE</h3>
-    </div>
+      <section id="PickSingleDay_page">
+        <h3>SINGLEDAYPAGE</h3>
+        <label for="searchTermSingleDay">Pick a date in the past: </label>
+        <input id="searchTermSingleDay" type="date"/>
+        <button id="searchSingleDay">Search</button>
+      </section>
 
-    <div id="Default">
-      <h3>TODAYPAGE</h3>
-      <button id="searchToday">Search</button>
-    </div>
+      <section id="StartDateEndDate_page">
+        <h3>STARTENDPAGE</h3>
+        <p>Select two dates. This may be a past date or today's date</p>
+        <label for="searchTermStartDate">Start date:</label>
+        <input id="searchTermStartDate" type="date"/>
 
-    <div id="PickSingleDay">
-      <h3>SINGLEDAYPAGE</h3>
-      <label for="searchTermSingleDay">Pick a date in the past: </label>
-      <input id="searchTermSingleDay" type="date"/>
-      <button id="searchSingleDay">Search</button>
-    </div>
+        <label for="searchTermEndDate">End date:</label>
+        <input id="searchTermEndDate" type="date"/>
 
-    <div id="startDate_endDate">
-      <h3>STARTENDPAGE</h3>
-      <p>Select two dates. This may be a past date or today's date</p>
-      <label for="searchTerm1">Start date:</label>
-      <input id="searchTerm1" type="date"/>
-      <label for="searchTerm2">End date:</label>
-      <input id="searchTerm2" type="date"/>
-      <button id="searchStartEnd">Search</button>
-      <br>
-    </div>
+        <button id="searchStartEnd">Search</button>
+        <br>
+      </section>
+    </article>
 
     <!-- import the webpage's javascript file -->
     <script src="./script/vendor/routie.js"></script>
@@ -51,9 +55,9 @@
       <ul>
         <li><a href="#Home_page">1. Homepage</a></li>
         <li><a href="#Default_page">2. Picture of the Day -> Today</a></li>
-        <li><a href="#SingleDay_page">3. Picture of the Day -> Choose a day</a></li>
+        <li><a href="#PickSingleDay_page">3. Picture of the Day -> Choose a day</a></li>
         <li><a href="#StartDateEndDate_page">4. Picture of the Day -> Choose a period</a></li>
-        <li><a href="#">5. </a></li>
+        <li><a href="#Detail_page">5. Detailpage</a></li>
       </ul>
     </nav>
   </body>
