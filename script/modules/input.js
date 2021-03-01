@@ -2,7 +2,7 @@ import { sendApiRequest } from './fetch.js';
 import { useApiData } from '../main.js';
 
 let searchTodayButton = document.querySelector("#searchToday")
-let searchSingleDayButton = document.querySelector("#searchSingleDay")
+let searchSingleDayButton = document.getElementById("searchSingleDay")
 let searchStartEndButton = document.querySelector("#searchStartEnd")
 
 const API_KEY = "P3unXRlp7hkIU9gPyyZQu0xCiVuEXcsTzzRgCAhD"
@@ -15,10 +15,10 @@ searchTodayButton.addEventListener("click", async()=>{
 })
 
 searchSingleDayButton.addEventListener("click", async()=>{
-    var calendarDate = document.querySelector("#searchTermSingleDay").value
-    API_url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${calendarDate}`
-    const data = await sendApiRequest(API_url)
-    useApiData(2, data)
+  var calendarDate = document.querySelector("#searchTermSingleDay").value
+  API_url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${calendarDate}`
+  const data = await sendApiRequest(API_url)
+  useApiData(2, data)
 })
 
 searchStartEndButton.addEventListener("click", async()=>{
@@ -29,4 +29,4 @@ searchStartEndButton.addEventListener("click", async()=>{
     useApiData(3, data)
 })
 
-export { searchTodayButton, searchSingleDayButton, searchStartEndButton }
+export { searchTodayButton, searchStartEndButton }

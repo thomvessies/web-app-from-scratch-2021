@@ -1,4 +1,4 @@
-import './routie.js';
+import '../vendor/routie.js';
 
 function routeHandeler(){
     routie({
@@ -7,15 +7,12 @@ function routeHandeler(){
         },
         'Default_page': function() {
             sectionToggler('Default_page');
-            
         },
         'PickSingleDay_page': function() {
             sectionToggler('PickSingleDay_page');
-            
         },
         'StartDateEndDate_page': function() {
             sectionToggler('StartDateEndDate_page');
-            
         }
     });
 }
