@@ -1,65 +1,69 @@
 import { sendApiRequest } from './modules/fetch.js';
 import './router/router.js';
-import './modules/input.js';
 
-function useApiData(buttonNumber, data){
-    if (buttonNumber == 1){
-        var data_explanation = document.querySelector("#defaultDiv")
-        var explanation = document.createElement("P")
-        data_explanation.innerHTML = ""
-        explanation.innerHTML = data.explanation
-        data_explanation.appendChild(explanation)
-        if (data.mediaType == "video"){
-            var mediaType = document.createElement("iframe")
-            mediaType.src = data.url
-            data_explanation.appendChild(mediaType)
-        } else {
-            var mediaType = document.createElement("img")
-            mediaType.src = data.url
-            data_explanation.appendChild(mediaType)
-        }
-        
-    } else if (buttonNumber == 2){
-        var data_explanation = document.querySelector("#singleDayDiv")
-        var explanation = document.createElement("P")
-        data_explanation.innerHTML = ""
-        explanation.innerHTML = data.explanation
-        data_explanation.appendChild(explanation)
-        if (data.media_type == "video"){
-            var mediaType = document.createElement("iframe")
-            mediaType.src = data.url
-            data_explanation.appendChild(mediaType)
-        } else {
-            var mediaType = document.createElement("img")
-            mediaType.src = data.url
-            data_explanation.appendChild(mediaType)
-        }
+const dataDiv = document.querySelector("#info")
+const today = makeDate(new Date())
+let beginDate = makeDate(new Date(Date.now() - 30 * 24 * 60 * 60 * 1000))
+const API_KEY = "P3unXRlp7hkIU9gPyyZQu0xCiVuEXcsTzzRgCAhD"
+let API_url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&start_date=${beginDate}&end_date=${today}`
+let data_list = await sendApiRequest(API_url)
+
+
+console.log(data_list.length)
+console.log(data_list)
+renderData(data_list)
+
+function makeDate(date){
+    let dd = date.getDate()
+    let mm = date.getMonth()+1
+    const yyyy = date.getFullYear()
+    if (dd < 10){
+        dd = "0" + dd
     }
-
-    else if (buttonNumber == 3){
-        var data_explanation = document.querySelector("#startDateEndDateDiv")
-        data_explanation.innerHTML = ""
-        var explanation
-        for (var i = 0; i < data.length; i++) {
-            explanation = document.createElement("p")
-            explanation.innerHTML = data[i].explanation
-            data_explanation.appendChild(explanation)
-            if (data[i].media_type == "video"){
-                var mediaType = document.createElement("iframe")
-                mediaType.src = data[i].url
-                data_explanation.appendChild(mediaType)
-            } else {
-                var mediaType = document.createElement("img")
-                mediaType.src = data[i].url
-                data_explanation.appendChild(mediaType)
-            }
-
-            // data_explanation.innerHTML += "<br>"
-            // data_explanation.innerHTML += data[i].explanation
-            // data_explanation.innerHTML += "<br>"
-            // data_explanation.innerHTML += data[i].media_type == "video" ? `<iframe width="560" height="315" src="${data[i].url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : `<img src="${data[i].url}">`
-        }
+    if (mm < 10){
+        mm = "0" + mm
     }
+    const returnDate = yyyy + "-" + mm + "-" + dd
+    return returnDate
 }
 
-export { useApiData }
+function renderData(data){
+    let mediaType
+    data.forEach((element) => {
+        if(element.media_type == "video"){
+            mediaType = "iframe"
+            console.log(element.media_type)
+        }
+        else {
+            mediaType = "img"
+
+        }
+        const html = `
+            <article class="data">
+              <h2>${element.title}</h2>
+              <p>${element.media_type}</p>
+              <a href="#giphy/547839088">
+                <${mediaType} src="${element.url}">
+              </a>
+            </article>
+          `;
+    dataDiv.insertAdjacentHTML('beforeend', html);
+  });
+};
+    // console.log(data)
+    // let dataSection = document.querySelector("#info")
+    // let explanation = document.createElement("P")
+    // dataSection.innerHTML = ""
+    // explanation.innerHTML = data.explanation
+    // dataSection.appendChild(explanation)
+    // data_explanation.appendChild(explanation)
+    // if (data_list.mediaType == "video"){
+    //     let mediaType = document.createElement("iframe")
+    //     mediaType.src = data_list.url
+    //     data_explanation.appendChild(mediaType)
+    // } else {
+    //     let mediaType = document.createElement("img")
+    //     mediaType.src = data_list.url
+    //     data_explanation.appendChild(mediaType)
+    // }
+export { renderData }

@@ -5,14 +5,8 @@ function routeHandeler(){
         'Home_page': function() {
             sectionToggler('Home_page');
         },
-        'Default_page': function() {
-            sectionToggler('Default_page');
-        },
-        'PickSingleDay_page': function() {
-            sectionToggler('PickSingleDay_page');
-        },
-        'StartDateEndDate_page': function() {
-            sectionToggler('StartDateEndDate_page');
+        'Detail_page': function() {
+            sectionToggler('Detail_page');
         }
     });
 }
