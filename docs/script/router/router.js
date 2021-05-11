@@ -2,11 +2,11 @@ import '../vendor/routie.js';
 
 function routeHandeler(){
     routie({
-        'Home_page': function() {
-            sectionToggler('Home_page');
+        '': function() {
+            sectionToggler('home_page');
         },
-        'Detail_page': function() {
-            sectionToggler('Detail_page');
+       'detail_page/:date': function() {
+            sectionToggler('detail_page');
         }
     });
 }
@@ -20,7 +20,7 @@ function sectionToggler(page) {
       section.setAttribute("aria-hidden", "true");
       section.hidden = true;
     });
-  
+
     activeSection.classList.add('active');
     activeSection.setAttribute('aria-hidden', 'false');
     activeSection.hidden = false;

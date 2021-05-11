@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 body {
     background: rgb(0, 0, 0);
     color: white;
@@ -9,8 +13,12 @@ body {
 header {
     background:rgb(124, 77, 77);
 }
+main {
+    
+}
 
-#info {
+#home {
+    position: relative;
     display: grid;
     gap: 1em;
     grid-template-columns: repeat(3, 1fr);
@@ -23,11 +31,26 @@ header {
     border: solid;
 }
 
-img iframe {
+.data>a> img iframe {
+    position: absolute;
     height: 100%;
     width: 100%;
+    border-radius: 50%;
 }
 
+.data>a>h2 {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+}
+
+.back {
+    color:rgb(255, 0, 200)
+}
+
+p {
+    width: 68%;
+}
 /* h2 {
     font-size: 150%;
 
