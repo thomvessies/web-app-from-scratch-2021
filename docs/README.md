@@ -14,7 +14,4 @@ This application displays a new Astronomy Picture of the Day. These are pictures
 
 This application uses the NASA Astronomy Picture Of the DAY (APOD) API. 
 
-# Feature Wishlist
-
-- Random picture generator
-- Favorites page
+![alt text](https://https://github.com/thomvessies/web-app-from-scratch-2021/tree/master/docs/readme/actor_diagram.PNG)
