@@ -23,5 +23,6 @@ This website shows every picture of the day from the past 2 weeks and lets shows
 # API
 This application uses the NASA Astronomy Picture Of the DAY (APOD) API. 
 
-
+## missing features
+- Loader
 
